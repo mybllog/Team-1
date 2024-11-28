@@ -12,6 +12,13 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      fontFamily: {
+        ox: ['Oxygen', 'sans'],
+        Grotesk: ['Space Grotesk', 'sans'],
+        Mulish: ['Space Mulish', 'sans'],
+        sans: ['Poppins', 'sans-serif'],
+        sen: ['sen', 'sans'],
+     },
     },
   },
   plugins: [],
