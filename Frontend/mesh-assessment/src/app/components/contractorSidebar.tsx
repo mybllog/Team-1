@@ -36,7 +36,7 @@ const Sidebar = () => {
         <ul className="space-y-12 mt-20">
           <li className="hover:bg-blue-600 rounded-lg py-2 w-full block">
             <Link
-              href="/dashboard/contractor"
+              href="/Contractor"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <DashboardIcon />
@@ -45,7 +45,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/dashboard/quote-requests"
+            href="/Contractor/quoteRequest"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <RequestPageIcon />
@@ -63,7 +63,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/dashboard/bills"
+              href="/Contractor/bills"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <PaymentsIcon />
