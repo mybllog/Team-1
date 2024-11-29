@@ -1,35 +1,72 @@
 "use client"; // Client-side rendering
 
-import { useState } from 'react';
-import { Button, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Select, MenuItem } from '@mui/material';
-import { motion } from 'framer-motion';
-import Link from 'next/link';
-import ContractorLayout from '../ContractorLayout';
+import { useState } from "react";
+import {
+  Button,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Select,
+  MenuItem,
+} from "@mui/material";
+import { motion } from "framer-motion";
+import ContractorLayout from "../ContractorLayout";
 
 const BillsAndDisputesPage = () => {
-  const [statusFilter, setStatusFilter] = useState('');
-
-  const bills = [
-    { id: 1, client: 'John Doe', amount: '$500', date: '2024-11-20', status: 'unresolved' },
-    { id: 2, client: 'Jane Smith', amount: '$1200', date: '2024-11-18', status: 'resolved' },
-    { id: 3, client: 'Mark Lee', amount: '$800', date: '2024-11-15', status: 'unresolved' },
-  ];
+  const [statusFilter, setStatusFilter] = useState("");
+  const [bills, setBills] = useState([
+    {
+      id: 1,
+      client: "John Doe",
+      amount: "$500",
+      date: "2024-11-20",
+      status: "unresolved",
+    },
+    {
+      id: 2,
+      client: "Jane Smith",
+      amount: "$1200",
+      date: "2024-11-18",
+      status: "resolved",
+    },
+    {
+      id: 3,
+      client: "Mark Lee",
+      amount: "$800",
+      date: "2024-11-15",
+      status: "unresolved",
+    },
+  ]);
 
   const filteredBills = bills.filter((bill) => {
     return statusFilter ? bill.status === statusFilter : true;
   });
 
+  const handleRespondClick = (billId: number) => {
+    setBills((prevBills) =>
+      prevBills.map((bill) =>
+        bill.id === billId ? { ...bill, status: "resolved" } : bill
+      )
+    );
+  };
+
   return (
     <ContractorLayout>
-      <h2 className="text-xl font-semibold text-[#1E3A8A]">Bills and Client Disputes</h2>
-      
+      <h2 className="text-xl font-semibold text-[#1E3A8A]">
+        Bills and Client Disputes
+      </h2>
+
       {/* Filter Section */}
       <Select
         value={statusFilter}
         onChange={(e) => setStatusFilter(e.target.value)}
         displayEmpty
         className="mb-4"
-        inputProps={{ 'aria-label': 'Filter by status' }}
+        inputProps={{ "aria-label": "Filter by status" }}
       >
         <MenuItem value="">All Statuses</MenuItem>
         <MenuItem value="resolved">Resolved</MenuItem>
@@ -56,11 +93,17 @@ const BillsAndDisputesPage = () => {
                 <TableCell align="right">{bill.date}</TableCell>
                 <TableCell align="right">{bill.status}</TableCell>
                 <TableCell align="right">
-                  <Link href={`/contractor/respond-to-dispute/${bill.id}`} passHref>
-                    <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                      <Button variant="contained">Respond</Button>
-                    </motion.div>
-                  </Link>
+                  <motion.div
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Button
+                      variant="contained"
+                      onClick={() => handleRespondClick(bill.id)}
+                    >
+                      Respond
+                    </Button>
+                  </motion.div>
                 </TableCell>
               </TableRow>
             ))}

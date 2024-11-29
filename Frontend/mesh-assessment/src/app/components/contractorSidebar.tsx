@@ -41,10 +41,10 @@ const Sidebar = () => {
         } lg:translate-x-0 lg:w-[250px]`}
         data-aos="fade-right"
       >
-        <ul className="space-y-12 mt-20">
+        <ul className="space-y-5 mt-20">
           <li className="hover:bg-blue-600 rounded-lg py-2 w-full block">
             <Link
-              href="/ClientDashboard"
+              href="/ContractorDashboard"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <DashboardIcon />
@@ -62,7 +62,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/dashboard/work-orders"
+              href="/ContractorDashboard/workOrders"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <WorkIcon />
@@ -71,7 +71,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/Contractor/bills"
+              href="/ContractorDashboard/bills"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <PaymentsIcon />
@@ -80,7 +80,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/dashboard/revenue"
+              href="/ContractorDashboard/revenue"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <AssessmentIcon />

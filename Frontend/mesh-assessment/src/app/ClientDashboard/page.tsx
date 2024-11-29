@@ -2,8 +2,7 @@
 // import { submitQuoteRequest, fetchClientQuotes, fetchClientOrders } from '../utils/api';
 import { useState, useEffect } from "react";
 import AOS from 'aos';
-import Sidebar from "@/app/components/contractorSidebar";
-
+import ClientNavbar from "../components/clientNavbar";
 const ClientDashboard = () => {
     const [quotes, setQuotes] = useState([
         { name: "Sandra Clair", bill: "$1200"},
@@ -28,15 +27,18 @@ const ClientDashboard = () => {
         });
       }, []);
     return (
-        <div className="font-Poppins flex justify-center items-center flex-col">
+       
+        <div className="font-Poppins flex justify-center h-[100%] items-center flex-col bg-blue-50">
+            <ClientNavbar/>
             {/* <Sidebar/> */}
-            <div className="flex justify-center items-center mt-[30px] mb-[50px]">
-                <h1 className="text-2xl ">Client Dashboard</h1>
-            </div>
+      
+  <h1 className="text-2xl text-start mr-auto mt-[30px] mb-[40px]">Hello, John Doe</h1>
+
+
             <div className="flex w-[90%]" data-aos="fade-down">
-                <div className="place-items-center shadow-md rounded-md mr-[30px] w-[33%]">
+                <div className="place-items-center  rounded-md mr-[30px] w-[33%] bg-white shadow-2xl">
                     {/* Quote-Form */}
-                    <div className="mr-[30px] pl-[30px] py-[30px]">
+                    <div className="mr-[30px] pl-[30px] py-[30px] ">
                         <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">Submit Quote Request</h2>
                         <form action="">
                             <div className="flex flex-col">
@@ -57,7 +59,7 @@ const ClientDashboard = () => {
                         </form>
                     </div>
                 </div>
-                <div className="mr-[30px] place-items-center shadow-md rounded-md w-[35%]">
+                <div className="mr-[30px] place-items-center shadow-2xl rounded-md w-[35%] bg-white ">
                     {/* Work Tracking & Orders */}
                     <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">
                         View & Respond to Quotes
@@ -87,7 +89,7 @@ const ClientDashboard = () => {
                     </ul>
                     )}
                 </div>
-                <div className="mr-[30px] place-items-center shadow-md rounded-md w-[35%]">
+                <div className="mr-[30px] place-items-center shadow-2xl rounded-md w-[35%] bg-white">
                     {/* Work Tracking & Orders */}
                     <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">
                         Track Work Orders
@@ -116,7 +118,7 @@ const ClientDashboard = () => {
                 </div>
             </div>
             <div className="w-[90%]">
-                <div className="mr-[30px] place-items-center shadow-md rounded-md mt-[30px] px-[2px] py-[20px]">
+                <div className="mr-[30px] place-items-center shadow-2xl rounded-md mt-[30px] px-[2px] py-[20px] bg-white">
                     {/*Bill Payments*/}
                     <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">
                         Bill & Payments
@@ -145,6 +147,7 @@ const ClientDashboard = () => {
                 </div>
             </div>
         </div>
+       
     )
 }
 export default ClientDashboard
