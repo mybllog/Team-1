@@ -6,7 +6,9 @@ import AOS from 'aos';
 import Sidebar from "@/app/components/contractorSidebar";
 import ChartComponent from "@/app/components/revenueChart";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
-import Navbar from "../components/navbar";
+import OpenInFullIcon from "@mui/icons-material/OpenInFull";
+import Link from "next/link";
+import Tooltip from "@mui/material/Tooltip";
 
 const ContractorDashboard = () => {
   useEffect(() => {
@@ -47,7 +49,7 @@ const ContractorDashboard = () => {
           {/* Right: Navigation Links and Profile */}
           <div className="hidden lg:flex gap-6 items-center ml-auto">
             <a className="text-white hover:text-gray-200">
-              <NotificationsActiveIcon />
+              <NotificationsActiveIcon  className="h-8 w-8"/>
             </a>
 
             {/* Profile Icon */}
@@ -153,15 +155,31 @@ const ContractorDashboard = () => {
       </div>
 
       {/* Dashboard Content */}
-      <div className=" flex-1 pt-[70px] ml-[300px] px-6 mt-24 bg-[#F3F4F6">
+      <div className=" flex-1 pt-[70px] ml-[300px] px-6 mt-24 bg-[#F3F4F6]">
         {" "}
         {/* Added mt-24 to push content below the fixed header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full overflow-auto" data-aos="fade-down">
           {/* Quote Requests */}
           <div className="bg-white shadow-2xl rounded-lg p-6">
-            <h2 className="text-[27px] font-semibold mb-4 text-[#333333]">
-              Incoming Quote Requests
-            </h2>
+            <div className="flex">
+              <h2 className="text-[34px] font-semibold mb-4 text-[#333333]">
+                Incoming Quote Requests
+              </h2>
+              {/* <Link href="/Contractor/quoteRequest" passHref  className="ml-auto">
+                <button>
+                  <OpenInFullIcon className="text-black" />
+                </button>
+              </Link> */}
+
+              <Link href="/Contractor/quoteRequest" passHref  className="ml-auto">
+                <Tooltip title="Expand" arrow>
+                  <button className="ml-auto">
+                    <OpenInFullIcon className="text-black" />
+                  </button>
+                </Tooltip>
+              </Link>
+            </div>
+
             {quoteRequests.length === 0 ? (
               <p>No new requests</p>
             ) : (
@@ -212,9 +230,15 @@ const ContractorDashboard = () => {
 
           {/* Bills */}
           <div className="bg-white shadow-2xl rounded-lg p-6">
-            <h2 className="text-[27px] font-semibold mb-4 text-[#333333]">
-              Bills & Disputes
-            </h2>
+            <div className="flex">
+              <h2 className="text-[34px] font-semibold mb-4 text-[#333333]">
+                Bills & Disputes
+              </h2>
+              <button className="ml-auto">
+                <OpenInFullIcon className="text-black" />
+              </button>
+            </div>
+
             {bills.length === 0 ? (
               <p>No pending bills</p>
             ) : (

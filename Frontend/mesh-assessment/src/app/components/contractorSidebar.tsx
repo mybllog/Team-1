@@ -53,7 +53,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/dashboard/quote-requests"
+            href="/ContractorDashboard/quoteRequest"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <RequestPageIcon />
@@ -71,7 +71,7 @@ const Sidebar = () => {
           </li>
           <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
             <Link
-              href="/dashboard/bills"
+              href="/Contractor/bills"
               className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
             >
               <PaymentsIcon />
