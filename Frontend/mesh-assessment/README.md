@@ -1,36 +1,29 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 💼 : Driveway Service Management System
+This projects is a responsive web application designed to streamline communication and workflows between contractors and their clients. It includes separate dashboards tailored to the needs of both parties, ensuring efficiency in managing quotes, work orders, bills, and disputes.
 
-## Getting Started
+## 🌐 Live Demo
 
-First, run the development server:
+Check out the live site here: []
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 📁 Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This project is organized into the following structure:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **src/**: Contains all the source files for the website, including components, styles, and assets. 
+- **public/**: Contains the necessary images, icons for the app.
+- **api/**: Implemntation of all the required API.
+- **globals.css/**: For global styling/css implementstion.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🔧 Built With
 
-## Learn More
+- **React**: A JavaScript library for building user interfaces.
+- **Nextjs**: A fast build tool that offers an excellent development experience.
+- **Typescript**: For Javascript structure.
+- **Aos**: Animations and Transitions.
+- **Redux Toolkit**: State Management.
+- **Material Icons**: Neat and easy icons to use.
 
-To learn more about Next.js, take a look at the following resources:
+## 🙏 Acknowledgments
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Unsplash** for the beautiful images.
+- All the tools and libraries mentioned above for making development easier.
