@@ -9,7 +9,8 @@ module.exports = {
     extend: {
       fontFamily: {
         ox: ['Oxygen','sans'],
-        Grotesk: ['Space Grotesk', 'sans']
+        Grotesk: ['Space Grotesk', 'sans'],
+        Poppins: ['Poppins', 'sans']
       }
     },
   },

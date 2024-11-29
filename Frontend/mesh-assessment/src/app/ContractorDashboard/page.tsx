@@ -1,6 +1,7 @@
 "use client"; // Client-side rendering
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from 'aos';
 
 import Sidebar from "@/app/components/contractorSidebar";
 import ChartComponent from "@/app/components/revenueChart";
@@ -10,6 +11,12 @@ import Link from "next/link";
 import Tooltip from "@mui/material/Tooltip";
 
 const ContractorDashboard = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 2000, // Animation duration in milliseconds
+      once: true, // Whether animation should happen only once while scrolling
+    });
+  }, []);
   // Dummy data for the dashboard
   const [quoteRequests, setQuoteRequests] = useState([
     { property: "123 Elm St", status: "Pending" },
