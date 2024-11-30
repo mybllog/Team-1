@@ -20,6 +20,7 @@ This project is organized into the following structure:
 - **Nextjs**: A fast build tool that offers an excellent development experience.
 - **Typescript**: For Javascript structure.
 - **Aos**: Animations and Transitions.
+- **Lucide-React**: Implementing Forms, Creditcard, Clipboard.
 - **Redux Toolkit**: State Management.
 - **Material Icons**: Neat and easy icons to use.
 
