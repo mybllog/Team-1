@@ -29,10 +29,10 @@ const ClientDashboard = () => {
     return (
        
         <div className="font-Poppins flex justify-center h-[100%] items-center flex-col bg-blue-50">
-            <ClientNavbar/>
+            {/* <ClientNavbar/> */}
             {/* <Sidebar/> */}
       
-  <h1 className="text-2xl text-start mr-auto mt-[30px] mb-[40px]">Hello, John Doe</h1>
+  <h1 className="text-2xl text-start mr-auto mt-[30px] mb-[40px] ml-4">Hello, John Doe</h1>
 
 
             <div className="flex w-[90%]" data-aos="fade-down">

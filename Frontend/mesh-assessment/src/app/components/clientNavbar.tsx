@@ -7,22 +7,22 @@ const ClientNavbar = () => {
           <div className="text-2xl font-bold">Client Dashboard</div>
           <ul className="flex space-x-6 justify-end ml-auto gap-12">
             <li>
-              <a href="/" className="hover:text-gray-300">
+              <a href="/ClientDashboard" className="hover:text-gray-300">
                 Dashboard
               </a>
             </li>
             <li>
-              <a href="/" className="hover:text-gray-300">
+              <a href="/ClientDashboard/profile" className="hover:text-gray-300">
                 Profile
               </a>
             </li>
             <li>
-              <a href="/" className="hover:text-gray-300">
+              <a href="/ClientDashboard/work-orders" className="hover:text-gray-300">
                 Work orders
               </a>
             </li>
             <li>
-              <a href="/" className="hover:text-gray-300 mr-4">
+              <a href="/ClientDashboard/bills" className="hover:text-gray-300 mr-4">
                 Bills/payment
               </a>
             </li>
