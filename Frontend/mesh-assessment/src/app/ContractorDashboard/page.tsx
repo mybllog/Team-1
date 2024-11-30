@@ -48,32 +48,34 @@ const ContractorDashboard = () => {
           </h1>
           {/* Right: Navigation Links and Profile */}
           <div className="hidden lg:flex gap-6 items-center ml-auto">
-            <a className="text-white hover:text-gray-200">
+            <a onClick={() => { alert("No Notification")}} className="cursor-pointer text-white hover:text-gray-200">
               <NotificationsActiveIcon  className="h-8 w-8"/>
             </a>
 
             {/* Profile Icon */}
             <div className="relative">
-              <button className="transition-transform duration-300 ease-in-out transform hover:scale-110">
-                <div className="h-8 w-8 rounded-full bg-blue-200 flex items-center justify-center hover:bg-blue-400 hover:text-white font-bold transition-colors duration-300 ease-in-out">
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      d="M12 12.75C8.83 12.75 6.25 10.17 6.25 7C6.25 3.83 8.83 1.25 12 1.25C15.17 1.25 17.75 3.83 17.75 7C17.75 10.17 15.17 12.75 12 12.75ZM12 2.75C9.66 2.75 7.75 4.66 7.75 7C7.75 9.34 9.66 11.25 12 11.25C14.34 11.25 16.25 9.34 16.25 7C16.25 4.66 14.34 2.75 12 2.75Z"
-                      fill="#3B82F6 "
-                    />
-                    <path
-                      d="M20.5901 22.75C20.1801 22.75 19.8401 22.41 19.8401 22C19.8401 18.55 16.3202 15.75 12.0002 15.75C7.68015 15.75 4.16016 18.55 4.16016 22C4.16016 22.41 3.82016 22.75 3.41016 22.75C3.00016 22.75 2.66016 22.41 2.66016 22C2.66016 17.73 6.85015 14.25 12.0002 14.25C17.1502 14.25 21.3401 17.73 21.3401 22C21.3401 22.41 21.0001 22.75 20.5901 22.75Z"
-                      fill="#3B82F6 "
-                    />
-                  </svg>
-                </div>
-              </button>
+              <Link href="/ContractorDashboard/profile" passHref  className="ml-auto">
+                <button className="transition-transform duration-300 ease-in-out transform hover:scale-110">
+                  <div className="h-8 w-8 rounded-full bg-blue-200 flex items-center justify-center hover:bg-blue-400 hover:text-white font-bold transition-colors duration-300 ease-in-out">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M12 12.75C8.83 12.75 6.25 10.17 6.25 7C6.25 3.83 8.83 1.25 12 1.25C15.17 1.25 17.75 3.83 17.75 7C17.75 10.17 15.17 12.75 12 12.75ZM12 2.75C9.66 2.75 7.75 4.66 7.75 7C7.75 9.34 9.66 11.25 12 11.25C14.34 11.25 16.25 9.34 16.25 7C16.25 4.66 14.34 2.75 12 2.75Z"
+                        fill="#3B82F6 "
+                      />
+                      <path
+                        d="M20.5901 22.75C20.1801 22.75 19.8401 22.41 19.8401 22C19.8401 18.55 16.3202 15.75 12.0002 15.75C7.68015 15.75 4.16016 18.55 4.16016 22C4.16016 22.41 3.82016 22.75 3.41016 22.75C3.00016 22.75 2.66016 22.41 2.66016 22C2.66016 17.73 6.85015 14.25 12.0002 14.25C17.1502 14.25 21.3401 17.73 21.3401 22C21.3401 22.41 21.0001 22.75 20.5901 22.75Z"
+                        fill="#3B82F6 "
+                      />
+                    </svg>
+                  </div>
+                </button>
+              </Link>
             </div>
           </div>
 
@@ -155,7 +157,8 @@ const ContractorDashboard = () => {
       </div>
 
       {/* Dashboard Content */}
-      <div className=" flex-1 pt-[70px] ml-[300px] px-6 mt-24 bg-[#F3F4F6]">
+      <div className=" flex-1 pt-[70px] ml-[300px] px-6 mt-14 bg-[#F3F4F6]">
+        <h1 className="text-2xl text-center text-start mr-auto mb-[40px] ml-4">Hello, David Smith</h1>
         {" "}
         {/* Added mt-24 to push content below the fixed header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full overflow-auto" data-aos="fade-down">
@@ -171,7 +174,7 @@ const ContractorDashboard = () => {
                 </button>
               </Link> */}
 
-              <Link href="/Contractor/quoteRequest" passHref  className="ml-auto">
+              <Link href="/ContractorDashboard/quoteRequest" passHref  className="ml-auto">
                 <Tooltip title="Expand" arrow>
                   <button className="ml-auto">
                     <OpenInFullIcon className="text-black" />
@@ -234,9 +237,13 @@ const ContractorDashboard = () => {
               <h2 className="text-[34px] font-semibold mb-4 text-[#333333]">
                 Bills & Disputes
               </h2>
-              <button className="ml-auto">
-                <OpenInFullIcon className="text-black" />
-              </button>
+              <Link href="/ContractorDashboard/bills" passHref  className="ml-auto">
+                <Tooltip title="Expand" arrow>
+                  <button className="ml-auto">
+                    <OpenInFullIcon className="text-black" />
+                  </button>
+                </Tooltip>
+              </Link>
             </div>
 
             {bills.length === 0 ? (

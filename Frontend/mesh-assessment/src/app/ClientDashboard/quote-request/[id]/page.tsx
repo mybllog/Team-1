@@ -1,8 +1,8 @@
 "use client"; // Client-side rendering
 import Image from 'next/image';
-
-export default function QuoteRequestDetail({ params }: { params: { id: string } }) {
-  const { id } = params;
+import React from 'react';
+export default function QuoteRequestDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = React.use(params);
 
   // Dummy data for testing purposes
   const dummyData = {

@@ -52,7 +52,7 @@ export default function QuoteRequests() {
     amount: '',
   });
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log('New Quote Request:', newQuote);
     setShowForm(false);

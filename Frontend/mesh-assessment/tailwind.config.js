@@ -6,6 +6,12 @@ module.exports = {
     "./src/components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      sm: '320px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px'
+    },
     extend: {
       fontFamily: {
         ox: ['Oxygen','sans'],

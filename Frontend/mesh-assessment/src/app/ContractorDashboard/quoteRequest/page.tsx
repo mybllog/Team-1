@@ -87,7 +87,7 @@ const QuotesPage = () => {
           <h2 className="text-xl font-semibold mb-4 text-[#1E3A8A]">Quotes</h2>
 
           {/* Create Quote Button */}
-          <Link href="/contractor/create-quote" passHref className="ml-auto">
+          <Link href="/ContractorDashboard" passHref className="ml-auto">
             <Button variant="contained" className="bg-[#1E3A8A]">
               Create Quote
             </Button>
@@ -158,7 +158,7 @@ const QuotesPage = () => {
                       </QuoteStatus>
                     </TableCell>
                     <TableCell align="right">
-                      <Link href={`/contractor/quote/${quote.id}`} passHref>
+                      <Link href={`/ContractorDashboard/quoteRequest/${quote.id}`} passHref>
                         <Tooltip title="Expand">
                           <Button>
                             <OpenInFullIcon className="text-black" />

@@ -73,12 +73,12 @@ export default function WorkOrdersAndBills() {
       <div>
         <h2 className="text-xl font-semibold mb-4">Bills</h2>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
-          {bills.map((bill) => (
-            <div key={bill.id} className="border rounded shadow p-4">
+          {bills.map((bill, id) => (
+            <div key={id} className="border rounded shadow p-4">
               <h3 className="text-lg font-medium mb-2">Amount: ${bill.amount}</h3>
               <p>Status: <span className="font-bold">{bill.status}</span></p>
               <p>Due Date: <span className="font-bold">{bill.dueDate}</span></p>
-              <Link href={`ClientDashboard/bills/${bill.id}`}>
+              <Link href={`/ClientDashboard/bills/${bill.id}`}>
                 <button className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600">
                   View Details
                 </button>

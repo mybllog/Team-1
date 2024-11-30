@@ -1,28 +1,28 @@
 "use client"; // Client-side rendering
-
+import React from 'react'
 import Image from 'next/image';
 
-export default function BillDetail({ params }: { params: { id: string } }) {
-  const { id } = params;
+export default function BillDetail({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = React.use(params);
 
   // Dummy data for testing purposes
   const dummyBills = [
     {
-      id: 1,
+      id: 0,
       amount: 1500,
       status: 'Pending',
       dueDate: '2024-12-10',
       details: 'Electricity bill for November 2024.',
     },
     {
-      id: 2,
+      id: 1,
       amount: 500,
       status: 'Paid',
       dueDate: '2024-11-15',
       details: 'Water bill for October 2024.',
     },
     {
-      id: 3,
+      id: 2,
       amount: 300,
       status: 'Overdue',
       dueDate: '2024-11-05',
@@ -43,7 +43,7 @@ export default function BillDetail({ params }: { params: { id: string } }) {
         <div className="mb-4">
           <h1 className="text-2xl font-semibold">Bill Details</h1>
         </div>
-        <div className="mb-4">
+        <div key={bill.id} className="mb-4">
           <h2 className="text-xl font-medium">Amount: ${bill.amount}</h2>
           <p><strong>Status:</strong> {bill.status}</p>
           <p><strong>Due Date:</strong> {bill.dueDate}</p>

@@ -32,7 +32,7 @@ const BillsPage = () => {
       <h1 className="text-2xl font-semibold mb-6">Bills</h1>
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-1">
-        {bills.map((bill) => (
+        {bills.map((bill, id) => (
           <div key={bill.id} className="border rounded shadow p-4 bg-white">
             <div className="mb-4">
               <h2 className="text-xl font-medium">Amount: ${bill.amount}</h2>
@@ -40,7 +40,7 @@ const BillsPage = () => {
               <p><strong>Due Date:</strong> {bill.dueDate}</p>
             </div>
             {/* Use Link directly without onClick on button */}
-            <Link href={`/ClientDashboard/bills/${bill.id}`}>
+            <Link href={`/ClientDashboard/bills/${id}`}>
               <button className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                 View Details
               </button>
