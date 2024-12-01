@@ -42,9 +42,18 @@ const quoteRequests = [
   },
 ];
 
+// Define the type for newQuote state
+interface QuoteRequest {
+  address: string;
+  size: string;
+  description: string;
+  status: string;
+  amount: string;
+}
+
 export default function QuoteRequests() {
-  const [showForm, setShowForm] = useState(false)
-  const [newQuote, setNewQuote] = useState({
+  const [showForm, setShowForm] = useState(false);
+  const [newQuote, setNewQuote] = useState<QuoteRequest>({
     address: '',
     size: '',
     description: '',
@@ -52,7 +61,8 @@ export default function QuoteRequests() {
     amount: '',
   });
 
-  const handleFormSubmit = (e: React.FormEvent) => {
+  // Typing the event parameter as React.FormEvent<HTMLFormElement>
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log('New Quote Request:', newQuote);
     setShowForm(false);

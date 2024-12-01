@@ -1,8 +1,17 @@
 "use client"; // Client-side rendering
 import { useState, useEffect } from 'react';
 
+// Define a type for the user data
+type UserData = {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  profilePicture: string;
+};
+
 export default function ProfilePage() {
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   // Dummy user data for demonstration
   useEffect(() => {

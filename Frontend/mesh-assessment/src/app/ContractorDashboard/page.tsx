@@ -18,23 +18,23 @@ const ContractorDashboard = () => {
     });
   }, []);
   // Dummy data for the dashboard
-  const [quoteRequests, setQuoteRequests] = useState([
+  const [quoteRequests] = useState([
     { property: "123 Elm St", status: "Pending" },
     { property: "456 Oak Rd", status: "Approved" },
     { property: "789 Pine Ave", status: "Pending" },
   ]);
 
-  const [workOrders, setWorkOrders] = useState([
+  const [workOrders] = useState([
     { job: "Driveway Sealing", status: "In Progress" },
     { job: "Crack Repair", status: "Completed" },
   ]);
 
-  const [bills, setBills] = useState([
+  const [bills] = useState([
     { client: "John Doe", status: "Paid" },
     { client: "Jane Smith", status: "Unpaid" },
   ]);
 
-  const [revenue, setRevenue] = useState(5000); // Example revenue
+  const [revenue] = useState(5000); // Example revenue
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (

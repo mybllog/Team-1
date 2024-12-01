@@ -1,9 +1,19 @@
 "use client"; // Client-side rendering
 import { useState, useEffect } from 'react';
 import Sidebar from '@/app/components/contractorSidebar';
-import { div } from 'framer-motion/client';
+
+// Define the type for user data
+interface UserData {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  profilePicture: string;
+}
+
 export default function ProfilePage() {
-  const [userData, setUserData] = useState(null);
+  // State with proper type definition for user data
+  const [userData, setUserData] = useState<UserData | null>(null);
 
   // Dummy user data for demonstration
   useEffect(() => {
@@ -25,7 +35,7 @@ export default function ProfilePage() {
 
   return (
     <div>
-      <Sidebar/> 
+      <Sidebar />
       <div className="px-[300px] mt-[130px]">
         <h1 className="text-2xl font-semibold mb-6">Profile</h1>
         <div className="flex items-center space-x-4">
@@ -58,13 +68,13 @@ export default function ProfilePage() {
             Edit Profile
           </button>
           <button
-            onClick={() => window.location.href = "/"}
+            onClick={() => window.location.href = '/'}
             className="px-6 py-2 bg-red-500 text-white rounded hover:bg-red-600"
           >
             Logout
           </button>
         </div>
-    </div>
+      </div>
     </div>
   );
 }

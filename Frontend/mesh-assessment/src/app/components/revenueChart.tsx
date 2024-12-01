@@ -1,6 +1,7 @@
-// src/components/ChartComponent.js
+// src/components/ChartComponent.tsx
 import { Bar } from 'react-chartjs-2';
-import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend, TooltipItem } from 'chart.js';
+import { ChartOptions } from 'chart.js';
 
 // Registering required chart components for Chart.js
 ChartJS.register(
@@ -17,32 +18,32 @@ const ChartComponent = () => {
   const data = {
     labels: ['January', 'February', 'March', 'April', 'May', 'June'],
     datasets: [
-        {
-          label: 'Monthly Revenue',
-          data: [10, 20, 30, 40, 50, 60],
-          backgroundColor: [
-            'rgba(75, 192, 192, 0.2)',  // Color for the first bar
-            'rgba(255, 99, 132, 0.2)',  // Color for the second bar
-            'rgba(54, 162, 235, 0.2)',  // Color for the third bar
-            'rgba(255, 159, 64, 0.2)',  // Color for the fourth bar
-            'rgba(153, 102, 255, 0.2)', // Color for the fifth bar
-            'rgba(255, 205, 86, 0.2)'   // Color for the sixth bar
-          ],
-          borderColor: [
-            'rgba(75, 192, 192, 1)',    // Border color for the first bar
-            'rgba(255, 99, 132, 1)',    // Border color for the second bar
-            'rgba(54, 162, 235, 1)',    // Border color for the third bar
-            'rgba(255, 159, 64, 1)',    // Border color for the fourth bar
-            'rgba(153, 102, 255, 1)',   // Border color for the fifth bar
-            'rgba(255, 205, 86, 1)'     // Border color for the sixth bar
-          ],
-          borderWidth: 1,
-        },
-      ],
+      {
+        label: 'Monthly Revenue',
+        data: [10, 20, 30, 40, 50, 60],
+        backgroundColor: [
+          'rgba(75, 192, 192, 0.2)', // Color for the first bar
+          'rgba(255, 99, 132, 0.2)', // Color for the second bar
+          'rgba(54, 162, 235, 0.2)', // Color for the third bar
+          'rgba(255, 159, 64, 0.2)', // Color for the fourth bar
+          'rgba(153, 102, 255, 0.2)', // Color for the fifth bar
+          'rgba(255, 205, 86, 0.2)', // Color for the sixth bar
+        ],
+        borderColor: [
+          'rgba(75, 192, 192, 1)', // Border color for the first bar
+          'rgba(255, 99, 132, 1)', // Border color for the second bar
+          'rgba(54, 162, 235, 1)', // Border color for the third bar
+          'rgba(255, 159, 64, 1)', // Border color for the fourth bar
+          'rgba(153, 102, 255, 1)', // Border color for the fifth bar
+          'rgba(255, 205, 86, 1)', // Border color for the sixth bar
+        ],
+        borderWidth: 1,
+      },
+    ],
   };
 
-  // Chart options
-  const options = {
+  // Chart options with explicit type
+  const options: ChartOptions<'bar'> = {
     responsive: true,
     plugins: {
       legend: {
@@ -50,7 +51,8 @@ const ChartComponent = () => {
       },
       tooltip: {
         callbacks: {
-          label: (tooltipItem) => {
+          // Properly type tooltipItem to avoid 'any' type error
+          label: (tooltipItem: TooltipItem<'bar'>) => {
             return `$${tooltipItem.raw}`; // Format the tooltip label as currency
           },
         },

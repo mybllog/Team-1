@@ -1,8 +1,10 @@
+
+import React from 'react';
 import ContractorLayout from "../../ContractorLayout";
 import { IoArrowBack } from "react-icons/io5";
 import Link from "next/link";
-export default function WorkOrdersList({ params }) {
-  const { id } = params;
+export default function WorkOrdersList({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = React.use(params);
   return (
     <ContractorLayout>
       <div className="container mx-auto p-4">
