@@ -36,7 +36,7 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-[320px] bg-[#1E3A8A] text-white p-6 z-40 transition-transform duration-300 ${
+        className={`fixed top-0 left-0 h-full w-[320px] bg-[#1E3A8A] text-white p-6 z-40 transition-transform visible duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 lg:w-[250px]`}
         data-aos="fade-right"
