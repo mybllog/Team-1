@@ -1,6 +1,7 @@
 "use client"; // Client-side rendering
 import { useState, useEffect } from "react";
 import AOS from 'aos';
+import CreateQuoteForm from "../components/quoteform";
 
 const ClientDashboard = () => {
   const [quotes] = useState([
@@ -28,163 +29,113 @@ const ClientDashboard = () => {
   }, []);
 
   return (
-    <div className="font-Poppins flex justify-center h-full items-center flex-col bg-blue-50">
-      <h1 className="text-2xl text-start mr-auto mt-2 mb-10 ml-4">Hello, John Doe</h1>
-
-      <div
-        className="grid grid-cols-2 gap-4 pl-[60px] place-items-center sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2"
-        data-aos="fade-down"
-      >
-        <div className="rounded-md mr-[40px] bg-white shadow-2xl sm:mr-[10px] md:mr-[10px] lg:mr-[40px]">
-          {/* Quote-Form */}
-          <div className="px-[30px] py-[30px]">
-            <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">Submit Quote Request</h2>
-            <form action="">
-              <div className="flex flex-col">
-                <label className="mb-[10px]" htmlFor="property">
-                  Property Address
-                </label>
-                <input
-                  className="border px-[10px] py-[7px] mb-[20px] rounded-md outline-none"
-                  type="email"
-                  name="property"
-                  id="property"
-                  placeholder="Email address"
-                  required
-                />
-              </div>
-              <div className="flex flex-col">
-                <label className="mb-[10px]" htmlFor="size">
-                  Property Size (sq ft)
-                </label>
-                <input
-                  className="border px-[10px] py-[7px] mb-[20px] rounded-md outline-none"
-                  type="number"
-                  name="size"
-                  id="size"
-                  placeholder="Enter size"
-                  required
-                />
-              </div>
-              <div className="flex flex-col">
-                <label className="mb-[10px]" htmlFor="photos">
-                  Upload Photos
-                </label>
-                <input
-                  className="border px-[10px] py-[7px] mb-[10px] rounded-md outline-none"
-                  type="file"
-                  name="photos"
-                  id="photos"
-                  required
-                />
-              </div>
-              <button
-                type="submit"
-                className="mt-[30px] text-[13px] bg-blue-600 text-white rounded-md px-2 py-2 hover:bg-blue-500"
-              >
-                Submit Request
-              </button>
-            </form>
-          </div>
-        </div>
-
-        <div className="shadow-2xl rounded-md bg-white px-[20px] py-[30px] w-[90%] sm:w-[129%] lg:w-[90%]">
-          {/* View & Respond to Quotes */}
-          <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">View & Respond to Quotes</h2>
-          {quotes.length === 0 ? (
-            <p>No ongoing work orders</p>
-          ) : (
-            <ul>
-              {quotes.map((quote, index) => (
-                <li key={index} className="border-b py-3">
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm text-gray-500">
-                      <h2>{quote.name}</h2>
-                      <button
-                        type="button"
-                        className="mt-[30px] text-[13px] bg-blue-600 text-white rounded-md px-2 py-2 hover:bg-blue-500"
-                      >
-                        Accept
-                      </button>
-                    </div>
-                    <div className="text-sm text-green-600">
-                      <p>{quote.bill}</p>
-                      <button
-                        type="button"
-                        className="mt-[30px] text-[13px] bg-red-600 text-white rounded-md px-2 py-2 hover:bg-red-500"
-                      >
-                        Reject
-                      </button>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
-
-      <div className="mr-[30px] place-items-center shadow-2xl mt-[50px] w-[40%] px-[10px] py-[30px] rounded-md bg-white sm:w-full md:w-full lg:w-[40%] sm:mr-[10px] md:mr-[10px]">
-        {/* Track Work Orders */}
-        <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">Track Work Orders</h2>
-        {workOrders.length === 0 ? (
-          <p>No ongoing work orders</p>
-        ) : (
-          <ul>
-            {workOrders.map((order, index) => (
-              <li key={index} className="border-b py-3">
-                <div className="flex justify-between items-center">
-                  <div className="text-sm text-gray-500">
-                    <h2>Job: {order.job}</h2>
-                    <button
-                      onClick={() => (window.location.href = '/ClientDashboard/work-orders')}
-                      className="mt-[30px] text-[13px] bg-blue-600 text-white rounded-md px-2 py-2 hover:bg-blue-500"
-                    >
-                      View Details
-                    </button>
-                  </div>
-                  <div className="text-sm text-green-600">
-                    <p>{order.status}</p>
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-
-      <div className="w-[90%] sm:w-full md:w-full lg:w-[90%]">
-        <div className="mr-[30px] place-items-center shadow-2xl rounded-md mt-[30px] px-[2px] py-[20px] bg-white sm:px-[10px]">
-          {/* Bill Payments */}
-          <h2 className="text-[20px] font-semibold mb-4 text-[#333333]">Bill & Payments</h2>
-          {bills.length === 0 ? (
-            <p>No bills to pay</p>
-          ) : (
-            <ul className="w-[90%] sm:w-full md:w-full lg:w-[90%]">
-              {bills.map((bill, index) => (
-                <li key={index} className="border-b py-3">
-                  <div className="flex justify-between items-center">
-                    <div className="text-sm text-gray-500">
-                      <h2>{bill.bils}</h2>
-                      <button
-                        onClick={() => (window.location.href = '/ClientDashboard/bills')}
-                        type="button"
-                        className="mt-[30px] text-[13px] bg-green-600 text-white rounded-md px-2 py-2 hover:bg-green-500"
-                      >
-                        Pay Now
-                      </button>
-                    </div>
-                    <div className="text-sm text-gray-500">
-                      <p>{bill.payment}</p>
-                    </div>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
+<div className="font-Poppins flex flex-col items-center bg-blue-50 py-10 px-4 sm:px-6">
+  {/* CreateQuoteForm Section */}
+  <div className="w-full mb-10">
+    <div className="rounded-md  shadow-2xl  bg-white p-6 w-full">
+      <CreateQuoteForm />
     </div>
+  </div>
+
+  {/* Additional Sections */}
+  <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+    <div className="shadow-2xl rounded-md bg-white p-6 w-full">
+      <h2 className="text-xl font-semibold mb-4 text-[#333333]">View & Respond to Quotes</h2>
+      {quotes.length === 0 ? (
+        <p>No ongoing work orders</p>
+      ) : (
+        <ul>
+          {quotes.map((quote, index) => (
+            <li key={index} className="border-b py-3">
+              <div className="flex justify-between items-center">
+                <div className="text-sm text-gray-500">
+                  <h2>{quote.name}</h2>
+                  <button
+                    type="button"
+                    className="mt-3 text-xs bg-blue-600 text-white rounded-md px-3 py-2 hover:bg-blue-500"
+                  >
+                    Accept
+                  </button>
+                </div>
+                <div className="text-sm text-green-600">
+                  <p>{quote.bill}</p>
+                  <button
+                    type="button"
+                    className="mt-3 text-xs bg-red-600 text-white rounded-md px-3 py-2 hover:bg-red-500"
+                  >
+                    Reject
+                  </button>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+
+    {/* Track Work Orders Section */}
+    <div className="shadow-2xl rounded-md bg-white p-6 w-full">
+      <h2 className="text-xl font-semibold mb-4 text-[#333333]">Track Work Orders</h2>
+      {workOrders.length === 0 ? (
+        <p>No ongoing work orders</p>
+      ) : (
+        <ul>
+          {workOrders.map((order, index) => (
+            <li key={index} className="border-b py-3">
+              <div className="flex justify-between items-center">
+                <div className="text-sm text-gray-500">
+                  <h2>Job: {order.job}</h2>
+                  <button
+                    onClick={() => (window.location.href = '/ClientDashboard/work-orders')}
+                    className="mt-3 text-xs bg-blue-600 text-white rounded-md px-3 py-2 hover:bg-blue-500"
+                  >
+                    View Details
+                  </button>
+                </div>
+                <div className="text-sm text-green-600">
+                  <p>{order.status}</p>
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  </div>
+
+  {/* Bill & Payments Section */}
+  <div className="w-full shadow-2xl rounded-md bg-white p-6">
+    <h2 className="text-xl font-semibold mb-4 text-[#333333]">Bill & Payments</h2>
+    {bills.length === 0 ? (
+      <p>No bills to pay</p>
+    ) : (
+      <ul>
+        {bills.map((bill, index) => (
+          <li key={index} className="border-b py-3">
+            <div className="flex justify-between items-center">
+              <div className="text-sm text-gray-500">
+                <h2>{bill.bils}</h2>
+                <button
+                  onClick={() => (window.location.href = '/ClientDashboard/bills')}
+                  type="button"
+                  className="mt-3 text-xs bg-green-600 text-white rounded-md px-3 py-2 hover:bg-green-500"
+                >
+                  Pay Now
+                </button>
+              </div>
+              <div className="text-sm text-gray-500">
+                <p>{bill.payment}</p>
+              </div>
+            </div>
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+</div>
+
+  
+  
   );
 };
 

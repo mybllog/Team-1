@@ -9,6 +9,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 import Link from "next/link";
 import Tooltip from "@mui/material/Tooltip";
+import CreateQuoteForm from "../components/quoteform";
 
 const ContractorDashboard = () => {
   useEffect(() => {
@@ -51,6 +52,8 @@ const ContractorDashboard = () => {
             <a onClick={() => { alert("No Notification")}} className="cursor-pointer text-white hover:text-gray-200">
               <NotificationsActiveIcon  className="h-8 w-8"/>
             </a>
+
+       
 
             {/* Profile Icon */}
             <div className="relative">
@@ -205,7 +208,7 @@ const ContractorDashboard = () => {
               </ul>
             )}
           </div>
-
+         
           {/* Work Orders */}
           <div className="bg-white shadow-2xl rounded-lg p-6">
             <h2 className="text-[27px] font-semibold mb-4 text-[#333333]">
