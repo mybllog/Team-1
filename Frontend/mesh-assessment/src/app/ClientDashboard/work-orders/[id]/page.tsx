@@ -1,5 +1,4 @@
 "use client"; // Client-side rendering
-import Image from 'next/image';
 import React from "react"
 export default function QuoteRequestDetail({ params }: { params: Promise<{ id: string }>}) {
   const { id } = React.use(params);

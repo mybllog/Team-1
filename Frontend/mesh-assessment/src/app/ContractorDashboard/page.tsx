@@ -9,6 +9,7 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 import Link from "next/link";
 import Tooltip from "@mui/material/Tooltip";
+import CreateQuoteForm from "../components/quoteform";
 
 const ContractorDashboard = () => {
   useEffect(() => {
@@ -18,23 +19,23 @@ const ContractorDashboard = () => {
     });
   }, []);
   // Dummy data for the dashboard
-  const [quoteRequests, setQuoteRequests] = useState([
+  const [quoteRequests] = useState([
     { property: "123 Elm St", status: "Pending" },
     { property: "456 Oak Rd", status: "Approved" },
     { property: "789 Pine Ave", status: "Pending" },
   ]);
 
-  const [workOrders, setWorkOrders] = useState([
+  const [workOrders] = useState([
     { job: "Driveway Sealing", status: "In Progress" },
     { job: "Crack Repair", status: "Completed" },
   ]);
 
-  const [bills, setBills] = useState([
+  const [bills] = useState([
     { client: "John Doe", status: "Paid" },
     { client: "Jane Smith", status: "Unpaid" },
   ]);
 
-  const [revenue, setRevenue] = useState(5000); // Example revenue
+  const [revenue] = useState(5000); // Example revenue
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
@@ -51,6 +52,8 @@ const ContractorDashboard = () => {
             <a onClick={() => { alert("No Notification")}} className="cursor-pointer text-white hover:text-gray-200">
               <NotificationsActiveIcon  className="h-8 w-8"/>
             </a>
+
+       
 
             {/* Profile Icon */}
             <div className="relative">
@@ -205,7 +208,7 @@ const ContractorDashboard = () => {
               </ul>
             )}
           </div>
-
+         
           {/* Work Orders */}
           <div className="bg-white shadow-2xl rounded-lg p-6">
             <h2 className="text-[27px] font-semibold mb-4 text-[#333333]">

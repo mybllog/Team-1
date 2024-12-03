@@ -1,7 +1,7 @@
 "use client"; // Client-side rendering
-
+import { useState } from 'react';
 import Link from 'next/link'
-
+import CreateOrderForm from '@/app/components/orderform';
 // This would typically come from your backend
 const workOrders = [
   {
@@ -46,10 +46,21 @@ const bills = [
 ];
 
 export default function WorkOrdersAndBills() {
+  const [showForm, setShowForm] = useState(false);
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-2xl font-semibold mb-6">Work Orders and Bills</h1>
-
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold mb-6">Work Orders and Bills</h1>
+        <button
+            onClick={() => setShowForm(true)}
+            className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            New Order
+        </button>
+      </div>
+      {showForm && (
+        <CreateOrderForm/>
+      )}
       {/* Work Orders Section */}
       <div className="mb-8">
         <h2 className="text-xl font-semibold mb-4">Work Orders</h2>

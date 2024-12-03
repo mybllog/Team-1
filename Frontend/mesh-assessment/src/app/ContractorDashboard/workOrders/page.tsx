@@ -1,4 +1,3 @@
-
 'use client'; // This marks the component as a client component
 import Link from 'next/link';
 import { useState } from 'react';
@@ -23,6 +22,7 @@ const WorkOrdersList = () => {
   return (
     <ContractorLayout>
     <div className="container mx-auto p-6">
+
       <h1 className="text-3xl font-semibold text-gray-800 mb-6">Work Orders</h1>
       <div className="overflow-x-auto bg-white shadow-lg rounded-lg">
         <table className="min-w-full table-auto border-collapse">
