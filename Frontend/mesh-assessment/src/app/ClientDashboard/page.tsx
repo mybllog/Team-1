@@ -1,7 +1,7 @@
 "use client"; // Client-side rendering
 import { useState, useEffect } from "react";
 import AOS from 'aos';
-import CreateQuoteForm from "../components/quoteform";
+// import CreateQuoteForm from "../components/quoteform";
 
 const ClientDashboard = () => {
   const [quotes] = useState([
@@ -31,11 +31,11 @@ const ClientDashboard = () => {
   return (
 <div className="font-Poppins flex flex-col items-center bg-blue-50 py-10 px-4 sm:px-6">
   {/* CreateQuoteForm Section */}
-  <div className="w-full mb-10">
+  {/* <div className="w-full mb-10">
     <div className="rounded-md  shadow-2xl  bg-white p-6 w-full">
       <CreateQuoteForm />
     </div>
-  </div>
+  </div> */}
 
   {/* Additional Sections */}
   <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
