@@ -1,13 +1,10 @@
-
 "use client";
-import React, { useState } from 'react';
+import React from 'react';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import { motion } from 'framer-motion';
 import Link from 'next/link'; 
 
 const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // To handle mobile menu toggle
-
   return (
     <div>
       {/* Dashboard Header */}
@@ -18,21 +15,18 @@ const Header = () => {
             Contractor Dashboard
           </h1>
 
-          {/* Right: Navigation Links and Profile */}
+          {/* Right: Profile and Notifications (Visible only on large screens, hidden on mobile) */}
           <div className="hidden lg:flex gap-6 items-center ml-auto">
-            <a className="text-white hover:text-gray-200">
-
+            {/* Notification Icon */}
             <motion.div
-            whileHover={{ scale: 1.1, rotate: 10 }} // Hover animation effect
-            whileTap={{ scale: 0.95 }} // Tap effect (when clicked)
-            transition={{ type: 'spring', stiffness: 300 }}
-            
-          >
-            <button onClick={() => { alert("No Notification")}}> <NotificationsActiveIcon className="h-8 w-8" /></button>
-           
-          </motion.div>
-            
-            </a>
+              whileHover={{ scale: 1.1, rotate: 10 }} // Hover animation effect
+              whileTap={{ scale: 0.95 }} // Tap effect (when clicked)
+              transition={{ type: 'spring', stiffness: 300 }}
+            >
+              <button onClick={() => { alert("No Notification")}}>
+                <NotificationsActiveIcon className="h-8 w-8" />
+              </button>
+            </motion.div>
 
             {/* Profile Icon */}
             <div className="relative">
@@ -60,55 +54,25 @@ const Header = () => {
               </Link>
             </div>
           </div>
-
-          {/* Mobile Menu Toggle */}
-          <button
-            className="lg:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
-            )}
-          </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      {isMenuOpen && (
-        <div className="lg:hidden flex flex-col gap-4 bg-[#1E3A8A] py-4 px-6">
-          <a className="text-white hover:text-gray-200">Home</a>
-          <a className="text-white hover:text-gray-200">Client Dashboard</a>
+      {/* Sidebar (Only for small screens) */}
+      <div className="lg:hidden flex flex-col bg-[#1E3A8A] py-4 px-6">
+        {/* Notification Icon */}
+        <motion.div
+          whileHover={{ scale: 1.1, rotate: 10 }} // Hover animation effect
+          whileTap={{ scale: 0.95 }} // Tap effect (when clicked)
+          transition={{ type: 'spring', stiffness: 300 }}
+        >
+          <button onClick={() => { alert("No Notification")}}>
+            <NotificationsActiveIcon className="h-8 w-8 text-white" />
+          </button>
+        </motion.div>
 
-          {/* Profile Icon for Mobile */}
-          <div className="relative">
+        {/* Profile Icon */}
+        <div className="relative mt-4">
+          <Link href='/ContractorDashboard/profile'>
             <button className="transition-transform duration-300 ease-in-out transform hover:scale-110">
               <div className="h-8 w-8 rounded-full bg-blue-200 flex items-center justify-center hover:bg-blue-400 hover:text-white font-bold transition-colors duration-300 ease-in-out">
                 <svg
@@ -129,9 +93,9 @@ const Header = () => {
                 </svg>
               </div>
             </button>
-          </div>
+          </Link>
         </div>
-      )}
+      </div>
     </div>
   );
 };
