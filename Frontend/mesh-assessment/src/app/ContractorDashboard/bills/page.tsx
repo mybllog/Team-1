@@ -28,8 +28,7 @@ interface Bill {
 const BillsAndDisputesPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [statusFilter, setStatusFilter] = useState(""); // status filter
-  const [bills, setBills] = useState<Bill[]>([]);
- // Initialize as an empty array
+  const [bills, setBills] = useState<Bill[]>([]); // Initialize as an empty array
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState<string | null>(null); // Error state
 

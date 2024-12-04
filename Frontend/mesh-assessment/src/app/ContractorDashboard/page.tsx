@@ -7,6 +7,8 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 import Link from "next/link";
 import Tooltip from "@mui/material/Tooltip";
+import HeaderAndSidebar from "../components/contractorHeaderandSidebar";
+
 
 const ContractorDashboard = () => {
   useEffect(() => {
@@ -36,6 +38,7 @@ const ContractorDashboard = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
+  
     <div className="bg-[#F3F4F6] font-Poppins">
       {/* Dashboard Header */}
       <div className="bg-[#1E3A8A] text-white py-6 fixed w-full top-0 z-50">
@@ -380,6 +383,7 @@ const ContractorDashboard = () => {
         </div>
       </div>
     </div>
+   
   );
 };
 

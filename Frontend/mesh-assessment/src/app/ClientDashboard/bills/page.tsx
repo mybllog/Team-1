@@ -1,4 +1,5 @@
 "use client"; // Client-side rendering
+
 import Link from "next/link";
 // import CreateBillForm from "@/app/components/billsform";
 const BillsPage = () => {

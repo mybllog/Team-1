@@ -43,14 +43,6 @@ const quoteRequests = [
   },
 ];
 
-// Define the type for newQuote state
-// interface QuoteRequest {
-//   address: string;
-//   size: string;
-//   description: string;
-//   status: string;
-//   amount: string;
-// }
 
 export default function QuoteRequests() {
   const [showForm, setShowForm] = useState(false);
