@@ -1,15 +1,12 @@
 "use client"; // Client-side rendering
-
 import { useState, useEffect } from "react";
-import AOS from 'aos';
-
+import AOS from "aos";
 import Sidebar from "@/app/components/contractorSidebar";
 import ChartComponent from "@/app/components/revenueChart";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import OpenInFullIcon from "@mui/icons-material/OpenInFull";
 import Link from "next/link";
 import Tooltip from "@mui/material/Tooltip";
-import CreateQuoteForm from "../components/quoteform";
 
 const ContractorDashboard = () => {
   useEffect(() => {
@@ -49,15 +46,22 @@ const ContractorDashboard = () => {
           </h1>
           {/* Right: Navigation Links and Profile */}
           <div className="hidden lg:flex gap-6 items-center ml-auto">
-            <a onClick={() => { alert("No Notification")}} className="cursor-pointer text-white hover:text-gray-200">
-              <NotificationsActiveIcon  className="h-8 w-8"/>
+            <a
+              onClick={() => {
+                alert("No Notification");
+              }}
+              className="cursor-pointer text-white hover:text-gray-200"
+            >
+              <NotificationsActiveIcon className="h-8 w-8" />
             </a>
-
-       
 
             {/* Profile Icon */}
             <div className="relative">
-              <Link href="/ContractorDashboard/profile" passHref  className="ml-auto">
+              <Link
+                href="/ContractorDashboard/profile"
+                passHref
+                className="ml-auto"
+              >
                 <button className="transition-transform duration-300 ease-in-out transform hover:scale-110">
                   <div className="h-8 w-8 rounded-full bg-blue-200 flex items-center justify-center hover:bg-blue-400 hover:text-white font-bold transition-colors duration-300 ease-in-out">
                     <svg
@@ -161,10 +165,14 @@ const ContractorDashboard = () => {
 
       {/* Dashboard Content */}
       <div className=" flex-1 pt-[70px] ml-[300px] px-6 mt-14 bg-[#F3F4F6]">
-        <h1 className="text-2xl text-center text-start mr-auto mb-[40px] ml-4">Hello, David Smith</h1>
-        {" "}
+        <h1 className="text-2xl text-center text-start mr-auto mb-[40px] ml-4">
+          Hello, David Smith
+        </h1>{" "}
         {/* Added mt-24 to push content below the fixed header */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full overflow-auto" data-aos="fade-down">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 w-full overflow-auto"
+          data-aos="fade-down"
+        >
           {/* Quote Requests */}
           <div className="bg-white shadow-2xl rounded-lg p-6">
             <div className="flex">
@@ -177,7 +185,11 @@ const ContractorDashboard = () => {
                 </button>
               </Link> */}
 
-              <Link href="/ContractorDashboard/quoteRequest" passHref  className="ml-auto">
+              <Link
+                href="/ContractorDashboard/quoteRequest"
+                passHref
+                className="ml-auto"
+              >
                 <Tooltip title="Expand" arrow>
                   <button className="ml-auto">
                     <OpenInFullIcon className="text-black" />
@@ -208,7 +220,7 @@ const ContractorDashboard = () => {
               </ul>
             )}
           </div>
-         
+
           {/* Work Orders */}
           <div className="bg-white shadow-2xl rounded-lg p-6">
             <h2 className="text-[27px] font-semibold mb-4 text-[#333333]">
@@ -240,7 +252,11 @@ const ContractorDashboard = () => {
               <h2 className="text-[34px] font-semibold mb-4 text-[#333333]">
                 Bills & Disputes
               </h2>
-              <Link href="/ContractorDashboard/bills" passHref  className="ml-auto">
+              <Link
+                href="/ContractorDashboard/bills"
+                passHref
+                className="ml-auto"
+              >
                 <Tooltip title="Expand" arrow>
                   <button className="ml-auto">
                     <OpenInFullIcon className="text-black" />
