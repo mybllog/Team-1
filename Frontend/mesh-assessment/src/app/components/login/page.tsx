@@ -11,7 +11,7 @@ const LoginForm = () => {
   const [loading, setLoading] = useState(false); // Added loading state
 
   // Handle form input changes
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -25,7 +25,7 @@ const LoginForm = () => {
   };
 
   // Handle form submission
-  const handleLogin = async (e) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError(""); // Reset any previous errors
     setLoading(true); // Set loading to true when the request is in progress

@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import CreateQuoteForm from "@/app/components/quoteform";
+
 import {
   Button,
   Table,
@@ -47,6 +49,8 @@ const QuoteStatus = styled("span")<{ status: string }>`
 const QuotesPage = () => {
   const [statusFilter, setStatusFilter] = useState("");
   const [dateFilter, setDateFilter] = useState("");
+  const [showForm, setShowForm] = useState(false);
+
 
   // Sample quote data
   const quotes = [
@@ -83,19 +87,18 @@ const QuotesPage = () => {
   return (
     <ContractorLayout>
       <div className="container mx-auto px-4 py-6">
-        <div className="flex">
-          <h2 className="text-xl font-semibold mb-4 text-[#1E3A8A]">Quotes</h2>
-
-          {/* Create Quote Button */}
-          <Link href="/ContractorDashboard" passHref className="ml-auto">
-            <Button variant="contained" className="bg-[#1E3A8A]">
-              Create Quote
-            </Button>
-          </Link>
-
-         
-        </div>
-
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-semibold">Quotes</h1>
+        <button
+          onClick={() => setShowForm(true)}
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+        >
+          Create Quote  
+        </button>
+      </div>
+      {showForm && (
+        <CreateQuoteForm/>
+      )}
         {/* Filter Section */}
         <FilterContainer>
           {/* Status Filter */}

@@ -2,6 +2,11 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import RequestPageIcon from "@mui/icons-material/RequestPage";
+import WorkIcon from "@mui/icons-material/Work";
+import PaymentsIcon from "@mui/icons-material/Payments";
+import AssessmentIcon from "@mui/icons-material/Assessment";
+import DashboardIcon from "@mui/icons-material/Dashboard";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -41,7 +46,7 @@ const Navbar = () => {
         </div>
 
         {/* Mobile Dropdown Menu */}
-        {isMenuOpen && (
+        {/* {isMenuOpen && (
           <div className="md:hidden bg-blue-700 py-4">
             <nav className="flex flex-col space-y-4">
               <Link href="/dashboard/contractor" className="px-4 text-white">
@@ -55,7 +60,62 @@ const Navbar = () => {
               </Link>
             </nav>
           </div>
-        )}
+        )} */}
+        <div
+        className={`fixed top-0 left-0 h-full w-[320px] bg-[#1E3A8A] text-white p-6 z-40 transition-transform duration-300 ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } lg:translate-x-0 lg:w-[250px]`}
+        data-aos="fade-right"
+      >
+        <ul className="space-y-5 mt-20">
+          <li className="hover:bg-blue-600 rounded-lg py-2 w-full block">
+            <Link
+              href="/ContractorDashboard"
+              className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
+            >
+              <DashboardIcon />
+              Dashboard
+            </Link>
+          </li>
+          <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
+            <Link
+            href="/ContractorDashboard/quoteRequest"
+              className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
+            >
+              <RequestPageIcon />
+              Quote Requests
+            </Link>
+          </li>
+          <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
+            <Link
+              href="/ContractorDashboard/workOrders"
+              className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
+            >
+              <WorkIcon />
+              Work Orders
+            </Link>
+          </li>
+          <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
+            <Link
+              href="/ContractorDashboard/bills"
+              className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
+            >
+              <PaymentsIcon />
+              Bills & Disputes
+            </Link>
+          </li>
+          <li className="hover:bg-blue-600 rounded-lg w-full block py-2">
+            <Link
+              href="/ContractorDashboard/revenue"
+              className="flex gap-4 px-4 py-2 text-white rounded-lg hover:text-gray-200"
+            >
+              <AssessmentIcon />
+              Revenue Report
+            </Link>
+          </li>
+        </ul>
+      </div>
+
       </div>
     </header>
   );
