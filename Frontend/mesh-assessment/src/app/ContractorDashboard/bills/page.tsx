@@ -16,11 +16,19 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import ContractorLayout from "../ContractorLayout";
+interface Bill {
+  id: number;
+  orderId: string;
+  amount: number;
+  dueDate: string;
+  status: string;
+  description: string;
+}
 
 const BillsAndDisputesPage = () => {
   const [showForm, setShowForm] = useState(false);
   const [statusFilter, setStatusFilter] = useState(""); // status filter
-  const [bills, setBills] = useState<any[]>([]); // Initialize as an empty array
+  const [bills, setBills] = useState<Bill[]>([]); // Initialize as an empty array
   const [loading, setLoading] = useState(true); // Loading state
   const [error, setError] = useState<string | null>(null); // Error state
 
@@ -46,8 +54,12 @@ const BillsAndDisputesPage = () => {
         } else {
           throw new Error("Invalid data format");
         }
-      } catch (err: any) {
-        setError(err.message);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('An unknown error occurred');
+        }
       } finally {
         setLoading(false);
       }
