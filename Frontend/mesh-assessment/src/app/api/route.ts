@@ -1,34 +1,29 @@
+// /app/api/register/route.ts
+import { NextRequest, NextResponse } from 'next/server';
 
-import type { NextApiRequest, NextApiResponse } from 'next';
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
 
-const registerHandler = async (req: NextApiRequest, res: NextApiResponse) => {
-  if (req.method === 'POST') {
-    try {
-      const response = await fetch('https://mesh-1-1.onrender.com/mesh/api/auth/register', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(req.body), // Forward the request body to the external API
-      });
+    const response = await fetch('https://mesh-1-1.onrender.com/mesh/api/auth/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body), // Forward the request body to the external API
+    });
 
-      const data = await response.json();
+    const data = await response.json();
 
-      if (!response.ok) {
-        // Forward error response from external API
-        return res.status(response.status).json({ error: data.error || 'Registration failed' });
-      }
-
-      // Return success response to the frontend
-      return res.status(200).json(data);
-    } catch (error) {
-      console.error('Error during registration:', error);
-      return res.status(500).json({ error: 'Something went wrong. Please try again.' });
+    if (!response.ok) {
+      // Forward error response from external API
+      return NextResponse.json({ error: data.error || 'Registration failed' }, { status: response.status });
     }
-  } else {
-    // Method Not Allowed
-    res.status(405).json({ error: 'Method Not Allowed' });
-  }
-};
 
-export default registerHandler;
+    // Return success response to the frontend
+    return NextResponse.json(data, { status: 200 });
+  } catch (error) {
+    console.error('Error during registration:', error);
+    return NextResponse.json({ error: 'Something went wrong. Please try again.' }, { status: 500 });
+  }
+}

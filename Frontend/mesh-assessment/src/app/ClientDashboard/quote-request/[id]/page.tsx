@@ -1,8 +1,27 @@
-import React from 'react';
+import React from "react";
 
-const QuoteDetail = ({ quote }) => {
+const QuoteDetail = async ({ params }: { params: { id: string } }) => {
+  const { id } = params;
+
+  // Fetch data on the server
+  let quote = null;
+  try {
+    const response = await fetch(
+      `https://nest-mesh.onrender.com/mesh/api/quotes/details/${id}`,
+      { cache: "no-store" } // Ensures fresh data is fetched for every request
+    );
+
+    if (!response.ok) {
+      throw new Error("Quote not found");
+    }
+
+    quote = await response.json();
+  } catch (error) {
+    console.error("Failed to fetch quote:", error);
+  }
+
   if (!quote) {
-    return <p>Loading...</p>;
+    return <p>Quote not found or an error occurred.</p>;
   }
 
   return (
@@ -13,29 +32,5 @@ const QuoteDetail = ({ quote }) => {
     </div>
   );
 };
-
-export async function getServerSideProps({ params }) {
-  const { id } = params;
-
-  try {
-    // Fetch the quote details using the id from the API
-    const response = await fetch(`https://nest-mesh.onrender.com/mesh/api/quotes/details/${id}`);
-    
-    if (!response.ok) {
-      throw new Error('Quote not found');
-    }
-    
-    const quote = await response.json();
-    
-    return {
-      props: { quote }, // Passing the quote data to the component
-    };
-  } catch (error) {
-    console.error(error);
-    return {
-      props: { quote: null }, // In case of error, return null
-    };
-  }
-}
 
 export default QuoteDetail;
